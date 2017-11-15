@@ -1,0 +1,115 @@
+<p id="notice"><%= notice %></p>
+<body id="page-top">
+  <head>
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+  </head>
+  <body id="aplication-body">
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading"><%= t(:event_information) %></h2>
+            <hr class="primary">
+          </div>
+        </div>
+      </div>
+  <div class="col-md-6 col-md-offset-3">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <b><%= t(:date_time_start) %></b>
+        <div class = "actions">
+          <b><%= t(:date_schedule) %></b>
+          <%= l(@event.date_start, format: :long) %>
+        </div>
+        <div class = "actions">
+          <b><%= t(:time_schedule) %></b>
+          <%= l(@event.time_start, format: :time_only) %>
+        </div>
+        <br>
+        <b><%= t(:date_time_end) %></b>
+        <div class = "actions">
+          <b><%= t(:date_schedule) %></b>
+          <%= l(@event.date_end, format: :long) %>
+        </div>
+        <div class = "actions">
+          <b><%= t(:time_schedule) %></b>
+          <%= l(@event.time_end, format: :time_only) %>
+        </div>
+        <br>
+        <div class = "actions">
+          <b><%= t(:status) %></b>
+          <%= @event.status %>
+        </div>
+        <br>
+        <div class = "actions" >
+          <b><%= t(:space_request) %></b>
+          <%= @event.jbb_space_requested%>
+        </div>
+        <br>
+        <div class = "actions" >
+          <b><%= t(:number_visitors) %></b>
+          <%= @event.estimated_public%>
+        </div>
+        <br>
+        <div class= "actions spacing" >
+          <b><%= t(:description) %></b>
+          <%= @event.description %>
+        </div>
+        <br>
+        <table>
+          <tr>
+            <td>
+              <div class = "actions" >
+                <b><%= t(:need_eletricity) %></b>
+                <%= @event.need_eletricity%>
+              </div>
+            </td>
+            <td>
+              <div class = "actions" >
+                &nbsp&nbsp&nbsp&nbsp
+                <b><%= t(:need_water) %></b>
+                <%= @event.need_water%>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <div class= "actions sp" >
+          <b><%= t(:other_informations) %></b>
+          <%= @event.other_informations %>
+        </div>
+        <br>
+        <div class= "actions spacing" >
+          <b><%= t(:name_institute) %></b>
+          <%= @event.name_institute %>
+        </div>
+        <div class= "actions spacing" >
+          <b><%= t(:institute_address) %></b>
+          <%= @event.institute_address %>
+        </div>
+        <div class= "actions spacing" >
+          <b><%= t(:institute_cnpj) %></b>
+          <%= @event.institute_cnpj %>
+        </div>
+        <br> <p>
+        <div class= "actions" >
+          <b><%= t(:jbb_response_to_request) %></b>
+          <%= @event.jbb_response_to_request%>
+        </div>
+        <div>
+          <b><%= t(:price_payment) %></b>
+          <%= @event.price_payment%>
+        </div>
+        <div class= "actions" >
+          <a id="back_space" >
+          <%= link_to t(:back), "/#{I18n.locale}"+show_event_user_path, class: "btn btn-primary"  %>
+        </div>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>

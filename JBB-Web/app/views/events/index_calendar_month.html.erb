@@ -1,0 +1,41 @@
+<body id="page-top">
+  <head>
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+  </head>
+  <body id="aplication-body">
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading"><%= t(:event_calendar) %></h2>
+            <hr class="primary">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <div class="actions">
+          <%= link_to t(:search_by_week), "/#{I18n.locale}"+show_event_calendar_week_path, class: "btn btn-primary week"%>
+        </div>
+        <br>
+        <%= month_calendar events: @events do |date, events| %>
+        <b><%= date.strftime("%d") %></b>
+        <% events.each do |event| %>
+        <div>
+         <br>
+         <%= event.jbb_space_requested %>
+       </div>
+       <% end %>
+       <% end %>
+       <div class= "actions" >
+         <%if current_user%>
+        <%= link_to t(:create_event), "/#{I18n.locale}"+events_path, class: "btn btn-primary"%>
+        <%end%>
+        <a id="calendar">
+          <%= link_to t(:back), "/#{I18n.locale}", class: "btn btn-primary back"%>
+        </div>
+        <br>
+      </div>
+    </section>
+  </body>
+</body>

@@ -1,0 +1,78 @@
+<script type="text/javascript">
+$(document).on('click', '.dropdown-menu li a', function () {
+  console.log("Selected Option:"+$(this).text());
+});
+</script>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body id="aplication-body">
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading"><%= t(:show_visitations) %></h2>
+            <hr class="primary">
+          </div>
+        </div>
+      </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          <div class="container">
+            <div class="dropdown">
+              <ul class="dropdown-menu">
+                <% @visitation_types.each do |p| %>
+                  <li><a href="#"> <%= p.visitation_type %> </a></li>
+                <%end%>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="col-md-10 col-md-offset-1"> -->
+            <div class="table-hover">
+              <table border=0 class="table" >
+                <br /> <br />
+                <tr>
+                  <th><%= t(:date_schedule) %></th>
+                  <th><%= t(:scheduled_period) %></td>
+                  <th><%= t(:status) %></th>
+                  <th><%= t(:number_visitors) %></th>
+                  <th><%= t(:description) %></th>
+                  <th><%= t(:user_info) %></th>
+                </tr>
+                <% @visitations_sorted.each do |visitation| %>
+                  <tr>
+                    <td> <%= l(visitation.date, format: :long) %> </td>
+                    <td> <%= visitation.period %> </td>
+                    <td> <%= visitation.status %> </td>
+                    <td> <%= visitation.visitants_amount %> </td>
+                    <td> <%= visitation.description %> </td>
+                    <td><%= link_to visitation.user.name, "/#{I18n.locale}/visitations/user_information?id=#{visitation.id}" %></td>
+                    <td> <%= link_to t(:analyze_order), action: 'index_employee', locale: @language, id: visitation %> </td>
+               <% end %>
+              </table>
+              <th><%=t(:value_raised)%>: R$</th>
+              <%= @sum_of_payments %>
+              <th>,00</th>
+            <br>
+            <br>
+            <br>
+            <p>
+            <%= link_to t(:generate_pdf_next_week), show_visitation_employee_path(format: 'pdf', period: "next_week"), class: "btn btn-primary"%>
+            <br><br>
+            <%= link_to t(:generate_pdf_last_month), show_visitation_employee_path(format: 'pdf', period: "last_month"), class: "btn btn-primary"%>
+
+            <a id="back_space_new" ></a>
+            <%= link_to t(:back), "/#{@language}/users/my_requests/#{current_user.id}", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+  </body>

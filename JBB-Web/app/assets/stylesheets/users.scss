@@ -1,0 +1,16 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@font-face {
+    font-family: Oswald-Light;
+    src: url("Oswald-Light.ttf") format("truetype");
+}
+
+#aplication-body {
+  font-family: 'Oswald-Light';
+}
+
+.spacing {
+    margin: 0px 0px 15px 0px;
+}
