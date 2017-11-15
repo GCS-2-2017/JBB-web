@@ -15,7 +15,6 @@ before_script:
 - sudo service postgresql start
 - cd JBB-Web/
 - gem install bundler
-- gem install rspec rspec-rails simplecov codeclimate-test-reporter
 - bundle install
 
 script:
