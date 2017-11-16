@@ -1,0 +1,39 @@
+engines:
+  rubocop:
+    enabled: true
+  brakeman:
+    enabled: true
+  eslint:
+    enabled: true
+    config:
+      config: .eslintrc
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+ratings:
+  paths:
+  - "JBB-Web/app/controllers/"
+  - "JBB-Web/app/helpers/"
+  - "JBB-Web/app/models/"
+exclude_paths:
+- "JBB-Web/bin/"
+- "JBB-Web/config/"
+- "JBB-Web/coverage/"
+- "JBB-Web/db/"
+- "JBB-Web/lib/"
+- "JBB-Web/log/"
+- "JBB-Web/public/"
+- "JBB-Web/spec/"
+- "JBB-Web/test/"
+- "JBB-Web/tmp/"
+- "JBB-Web/vendor/assets/"
+- "JBB-Web/app/assets/"
+- "JBB-Web/app/assets/channels/"
+- "JBB-Web/app/assets/javascripts/*.js"
+- "JBB-Web/app/assets/jobs/"
+- "JBB-Web/app/assets/mailers/"
