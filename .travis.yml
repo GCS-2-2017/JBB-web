@@ -20,7 +20,6 @@ before_script:
 
 script:
 - bundle exec rake db:setup RAILS_ENV=test
-- bundle exec rspec spec --force
 
 
 notifications:
