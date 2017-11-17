@@ -1,0 +1,39 @@
+---
+- hosts: web
+  vars:
+    project_name: JBB-Web
+
+    project_repo: git@github.com:GCS-2-2017/JBB-web.git
+
+    system_packages:
+        - nodejs
+        - nodejs-legacy
+        - postgresql-common
+        - postgresql-9.5
+        - git
+        - curl
+        - automake
+        - build-essential
+        - bison
+        - libpq-dev
+        - libssl-dev
+        - libtool
+        - libcurl4-openssl-dev
+        - libyaml-dev
+        - libreadline-dev
+        - libxml2-dev
+        - libxslt1-dev
+        - libffi-dev
+        - libffi-dev
+        - libgdbm-dev
+        - libncurses5-dev
+        - libsqlite3-dev
+        - sqlite3
+        - zlib1g-dev
+        - python-software-properties
+
+    become: true
+    tasks:
+      - name: Install system packages
+        apt: pkg={{ item }} state=installed update_cache=true
+        with_items: "{{ system_packages }}"

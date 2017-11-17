@@ -1,28 +1,27 @@
 language: ruby
-
 cache:
   bundler: true
   directories:
-    - tmp/cache/assets/test/sprockets
-
+  - tmp/cache/assets/test/sprockets
 rvm:
-- "2.3.1"
-
+- 2.3.1
 addons:
-  postgresql: "9.5.4"
-
+  postgresql: 9.5.4
 before_script:
 - sudo service postgresql start
 - cd JBB-Web/
 - gem install bundler
 - gem install rspec rspec-rails simplecov codeclimate-test-reporter
 - bundle install
-
 script:
 - bundle exec rake db:setup RAILS_ENV=test
-
-
 notifications:
   email:
     recipients:
-      - isaquealvesdl@gmail.com
+    - isaquealvesdl@gmail.com
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: HlvwyVM+JKSXzOW5hC2wYOF3up/yg3FF8B8vQgsIM8cZ4St9fbUyjvsD67Lhlw7f7NkGEOKMCy3IO/S9OTVXMHgZ+LiY/WjL+w+gjnhAv9QsRcPP9F6b5wX3GZY9jbI9+89R2x7MVgPdWKu7p+tyDEXXV4F4RCcidihaUo9fLQB0+Kj3YSrXcaBkWDNzrkJlWi6SkpWUl4UxGvhYBSORCjrnHmVthW4HldNwtHPNbhvJOzdNKt0DEt3+RUN9PTAOEX9ED500qFRamsRGv1+LE7YSoHM6Znt0jrSc/MHc1NOc7pdQx8h844edgxWF/YLLUb/jXBqUbGJNh09g5d8Re1bhcVeizZ92ExpEWIynCjvrCobAzk4yzCmNdEvaG8SGm69T6AOta/sp9ULGzyXP7xFAL2nLAbJH8YZMSkIMnpKJ6pCNU6vM9kC1aIPBJ9EYW3FLMLIWJE2SXb6d4CyJLvdTAtEys9E0muYUy2fRbB4CX7Eyt/JfgTNy5tKIXXk9qg+R/KrNgOCjPbi//uQAZddpPpwuxFnMm+o5VAWUABfYwU2I2gCfeCRyO/qn3lyj5lSzQ6jb56UCsmn2l9a2fTYenQOd0MDoDdIIFsTTXa9Qz4xrCmc/fRdnzYa5VKpn+nO1LoC2CkBb6Li4vAlhv44TQCX6TvL+32tFJ6JGIFU=
+  
