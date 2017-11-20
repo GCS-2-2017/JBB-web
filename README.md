@@ -5,6 +5,10 @@ Alunos:
 Cecilia França Dib de Oliveira Bessa - 14/0134425  
 Isaque Alves de Lima - 14/0144544
 
+travis CI: https://travis-ci.org/GCS-2-2017/JBB-web
+
+Heroku: https://jbb-web.herokuapp.com/
+
 ------------
 
 ## Manual de Instalação/Execução
@@ -146,3 +150,7 @@ Execute o projeto com o seguinte comando:
 ```
 $ rails s
 ```
+--------------
+## Empacotamento
+
+O projeto empacotado encontra-se disponível na pasta package na raiz do projeto.

@@ -35,4 +35,8 @@ Vagrant.configure("2") do |config|
     cd /vagrant/
     bundle install
   SHELL
+#  config.vm.provision "chef_solo" do |chef|
+#    chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
+#    chef.add_recipe "rails-stack"
+# end
 end

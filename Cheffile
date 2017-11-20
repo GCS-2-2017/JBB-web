@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'https://supermarket.getchef.com/api/v1'
+
+cookbook 'application_ruby'
+cookbook 'apt'
+cookbook 'user'
+cookbook 'ssh_known_hosts'
+cookbook 'ruby_build'
