@@ -153,4 +153,4 @@ $ rails s
 --------------
 ## Empacotamento
 
-O projeto empacotado encontra-se disponível na pasta package na raiz do projeto.
+O projeto empacotado juntamente com uma cópia do arquivo de descrição encontra-se disponível na pasta package disponível na raiz do projeto.
